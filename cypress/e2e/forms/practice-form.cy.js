@@ -15,7 +15,8 @@ describe('Practice Form', () => {
 
     it('should submit the form with valid data', () => {
 
-
+        //filling and submitting form 
+        
         PracticeFormPage.typeFirstName(testData.validUser.firstName)
         PracticeFormPage.typeLastName(testData.validUser.lastName)
         PracticeFormPage.typeUserEmail(testData.validUser.email)
@@ -29,6 +30,10 @@ describe('Practice Form', () => {
         PracticeFormPage.selectState(testData.validUser.currentAddress.stateAndCity.state)
         PracticeFormPage.selectCity(testData.validUser.currentAddress.stateAndCity.city)
         PracticeFormPage.submit()
+
+        //validating results
+
+        PracticeFormPage.resultModal().should('be.visible')
 
     })
 })

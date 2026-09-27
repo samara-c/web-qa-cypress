@@ -1,6 +1,6 @@
 class PracticeFormPage {
 
-
+    //form
     visit() {
         cy.visit('/automation-practice-form') 
     }
@@ -147,6 +147,16 @@ class PracticeFormPage {
     }
     submit() {
         this.submitButton().click();
+    }
+
+    //result modal
+    resultModal() {
+        return cy.get('[role="dialog"][aria-labelledby="example-modal-sizes-title-lg"]')
+
+    }
+
+    resultRow(label) {
+    return cy.contains('td', label).parent('tr')
     }
 }
 
