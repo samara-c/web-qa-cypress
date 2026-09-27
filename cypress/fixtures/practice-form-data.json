@@ -27,5 +27,12 @@
     
     }
 
+},
+
+"invalidValues": {
+  "invalidEmail": "samaraemail.com",
+  "emailWithoutDomain": "samara@",
+  "shortMobile": "12345",
+  "mobileWithLetters": "12345abcde"
 }
 }

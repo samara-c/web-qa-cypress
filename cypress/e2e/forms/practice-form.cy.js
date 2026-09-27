@@ -17,9 +17,8 @@ describe('Practice Form', () => {
     //happy path
     it('should submit the form with valid data', () => {
 
-        //format expected results
-
         const user = testData.validUser
+        //format expected results
 
         const expectedName =
             SubmissionFormatter.formatFullName(user)
@@ -85,6 +84,7 @@ describe('Practice Form', () => {
     })
 
     //edge cases
+    
     it('should not submit the form when required fields are empty', () => {
 
         //submit empty form
@@ -104,4 +104,53 @@ describe('Practice Form', () => {
 
 
      })
+
+    it('should not submit the form with an invalid email', () => {
+
+        const user = testData.validUser
+        const invalidEmailValue = testData.invalidValues.invalidEmail
+
+        PracticeFormPage.typeFirstName(user.firstName)
+        PracticeFormPage.typeLastName(user.lastName)
+        PracticeFormPage.typeUserEmail(invalidEmailValue)
+        PracticeFormPage.selectGender(user.gender)
+        PracticeFormPage.typeMobilePhone(user.mobilePhone)
+        PracticeFormPage.submit()
+
+        //assertions
+        PracticeFormPage.resultModal()
+            .should('not.exist')
+        PracticeFormPage.userEmailInput()
+            .should('match', ':invalid')
+        
+
+
+    }),
+
+    it('should not submit the form with an invalid mobile phone number', () => {
+
+        const user = testData.validUser
+        const invalidPhoneNumberValue = testData.invalidValues.mobileWithLetters
+
+        PracticeFormPage.typeFirstName(user.firstName)
+        PracticeFormPage.typeLastName(user.lastName)
+        PracticeFormPage.typeUserEmail(user.email)
+        PracticeFormPage.selectGender(user.gender)
+        PracticeFormPage.typeMobilePhone(invalidPhoneNumberValue)
+
+        PracticeFormPage.mobilePhoneInput()
+            .should('have.value', invalidPhoneNumberValue)
+            .should('match', ':invalid')
+        PracticeFormPage.submit()
+
+        //assertions
+        PracticeFormPage.resultModal()
+            .should('not.exist')
+        PracticeFormPage.mobilePhoneInput()
+            .should('match', ':invalid')
+        
+
+
+    })
+    
 })
