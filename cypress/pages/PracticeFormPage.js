@@ -155,6 +155,11 @@ class PracticeFormPage {
 
     }
 
+    resultModalTitle() {
+        return cy.get('#example-modal-sizes-title-lg')
+
+    }
+
     resultRow(label) {
     return cy.contains('td', label).parent('tr')
     }

@@ -17,7 +17,7 @@ describe('Practice Form', () => {
     //happy path
     it('should submit the form with valid data', () => {
 
-        //formatting expected results
+        //format expected results
 
         const user = testData.validUser
 
@@ -36,10 +36,10 @@ describe('Practice Form', () => {
         const expectedPicturePath =
             SubmissionFormatter.formatPicturePath(user.picture)
 
-        const formatStateAndCity = 
+        const expectStateAndCity = 
             SubmissionFormatter.formatStateAndCity(user.currentAddress.stateAndCity)
 
-        //filling and submitting form 
+        //fill and submit form 
 
         PracticeFormPage.typeFirstName(user.firstName)
         PracticeFormPage.typeLastName(user.lastName)
@@ -57,9 +57,51 @@ describe('Practice Form', () => {
 
 
         //assertions 
-        PracticeFormPage.resultModal().should('be.visible')
+        PracticeFormPage.resultModal()
+            .should('be.visible')
+        PracticeFormPage.resultModalTitle()
+            .should('have.text', 'Thanks for submitting the form')
         PracticeFormPage.resultRow('Student Name')
             .should('contain.text', expectedName)
+        PracticeFormPage.resultRow('Student Email')
+            .should('contain.text', user.email)
+        PracticeFormPage.resultRow('Gender')
+            .should('contain.text', user.gender)
+        PracticeFormPage.resultRow('Mobile')
+            .should('contain.text', user.mobilePhone)
+        PracticeFormPage.resultRow('Date of Birth')
+            .should('contain.text', expectedDateOfBirth)
+        PracticeFormPage.resultRow('Subjects')
+            .should('contain.text', expectedSubjects)
+        PracticeFormPage.resultRow('Hobbies')
+            .should('contain.text', expectedHobbies)
+        PracticeFormPage.resultRow('Picture')
+            .should('contain.text', expectedPicturePath)
+        PracticeFormPage.resultRow('Address')
+            .should('contain.text', user.currentAddress.street)
+        PracticeFormPage.resultRow('State and City')
+            .should('contain.text', expectStateAndCity)
 
     })
+
+    //edge cases
+    it('should not submit the form when required fields are empty', () => {
+
+        //submit empty form
+        PracticeFormPage.submit()
+
+        //assertions 
+        PracticeFormPage.resultModal()
+            .should('not.exist')
+        PracticeFormPage.firstNameInput()
+            .should('match', ':invalid')
+        PracticeFormPage.lastNameInput()
+            .should('match', ':invalid')
+        PracticeFormPage.genderRadioButton()
+            .should('not.be.checked')
+        PracticeFormPage.mobilePhoneInput()
+            .should('match', ':invalid')
+
+
+     })
 })
