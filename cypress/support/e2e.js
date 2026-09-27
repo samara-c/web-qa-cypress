@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-mochawesome-reporter/register' 
+import 'cypress-real-events'
 
 //hook to add manually screenshots to mochawesome passed test reports
 afterEach(function () {

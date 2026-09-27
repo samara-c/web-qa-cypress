@@ -1,13 +1,15 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-
+  defaultBrowser: 'chrome',
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,
     reportPageTitle: "QA - Automation Report",
     embeddedScreenshots: true,
-    inlineAssets: true
+    inlineAssets: true,
+    reportFilename: '[status]_[datetime]-report',
+    timestamp: 'yyyy-mm-dd_HHMMss'
 
   },
 
