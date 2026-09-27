@@ -4,12 +4,16 @@
     "firstName":"Samara",
     "lastName":"Cardoso",
     "email":"samara@email.com",
-    "gender": "female",
+    "gender": "Female",
     "mobilePhone": "1234567891",
-    "dateOfBirth": "26 Sep 1990",
+    "dateOfBirth":{
+        "day" : "27",
+        "month" : "December",
+        "year" : "1994"
+    },
     "subjects": "things",
     "hobbies": "Sports",
-    "picture": "samara.png",
+    "picture": "cypress/test-files/images/user.png",
     "currentAddress": "1st st",
     "stateAndCity":{
         "state": "NCR",

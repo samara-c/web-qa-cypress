@@ -15,7 +15,8 @@ describe('Practice Form', () => {
 
     it('should submit the form with valid data', () => {
 
-
+        PracticeFormPage.selectGender(testData.validUser.gender)
+        PracticeFormPage.selectDateOfBirth(testData.validUser.dateOfBirth)
 
     })
 })
