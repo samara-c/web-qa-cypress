@@ -10,7 +10,7 @@ class PracticeFormPage {
 
     }
 
-    fillFirstName(firstName) {
+    typeFirstName(firstName) {
         this.firstNameInput().type(firstName)
     }
 
@@ -18,7 +18,7 @@ class PracticeFormPage {
         return cy.get('#lastName')
     }
 
-    fillLastName(lastName) {
+    typeLastName(lastName) {
         this.lastNameInput().type(lastName)
     }
 
@@ -28,8 +28,8 @@ class PracticeFormPage {
     }
 
 
-    fillUserEmail(userEmail) {
-        this.userEmailInput().fill(userEmail)
+    typeUserEmail(userEmail) {
+        this.userEmailInput().type(userEmail)
     }
 
     genderRadioButton() {
@@ -46,8 +46,8 @@ class PracticeFormPage {
         return cy.get('#userNumber')
     }
 
-    fillMobilePhone(mobilePhone) {
-        this.mobilePhoneInput().fill(mobilePhone)
+    typeMobilePhone(mobilePhone) {
+        this.mobilePhoneInput().type(mobilePhone)
     }
 
     dateOfBirthInput() {
@@ -65,6 +65,81 @@ class PracticeFormPage {
 
     }
 
+    subjectsInput() {
+
+        return cy.get('#subjectsInput')
+
+    }
+
+    selectSubjects(subjects) {
+
+        subjects.forEach((subject)=> {
+            this.subjectsInput().type(subject)
+
+            cy.contains(
+                '[role="option"]',
+                new RegExp(`^${subject}$`)
+            ).click()
+
+        }
+
+    )}
+
+    hobbyLabel(hobby) {
+    return cy.contains(
+        'label',
+        new RegExp(`^${hobby}$`)
+        )
+    }
+
+    selectHobbies(hobbies) {
+    hobbies.forEach((hobby) => {
+        this.hobbyLabel(hobby).click()
+        })
+    }
+
+    uploadPictureFile() {
+        return cy.get('#uploadPicture')
+    }
+
+    uploadPicture(file) {
+        this.uploadPictureFile().selectFile(file)
+    }
+
+    streetAddressTextBox() {
+        return cy.get('#currentAddress')
+    }
+
+    typeStreetAddress(street) {
+        this.streetAddressTextBox().type(street)
+
+    }
+
+    stateDropdown() {
+        return cy.get('#state')
+    }
+
+    selectState(state) {
+
+        this.stateDropdown().click()
+        cy.contains(
+            '[role="option"]',
+        new RegExp(`^${state}$`))
+        .click()
+    }
+
+    cityDropdown() {
+        return cy.get('#city')
+    }
+
+    selectCity(city) {
+
+        this.cityDropdown().click()
+        cy.contains(
+            '[role="option"]',
+        new RegExp(`^${city}$`))
+        .click()
+    }
 
     submitButton() {
         return cy.get('#submit')

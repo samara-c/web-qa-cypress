@@ -11,13 +11,20 @@
         "month" : "December",
         "year" : "1994"
     },
-    "subjects": "things",
-    "hobbies": "Sports",
+    "subjects": [
+       "English","Physics"
+    ],
+    "hobbies": [
+        "Sports", "Reading", "Music"
+    ],
     "picture": "cypress/test-files/images/user.png",
-    "currentAddress": "1st st",
-    "stateAndCity":{
-        "state": "NCR",
-        "city": "Delhi"
+    "currentAddress": {
+        "street": "1st st",
+        "stateAndCity":{
+            "state": "NCR",
+            "city": "Delhi"
+    } 
+    
     }
 
 }
