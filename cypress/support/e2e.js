@@ -16,3 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-mochawesome-reporter/register' 
+
+//hook to add manually screenshots to mochawesome passed test reports
+afterEach(function () {
+  cy.screenshot(this.currentTest.title)
+})
