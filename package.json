@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run" 
+    "test": "cypress run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "cypress": "^16.1.0"
+    "cypress": "^16.1.0",
+    "cypress-mochawesome-reporter": "^5.0.0"
   }
 }
