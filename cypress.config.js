@@ -9,7 +9,8 @@ module.exports = defineConfig({
     embeddedScreenshots: true,
     inlineAssets: true,
     reportFilename: '[status]_[datetime]-report',
-    timestamp: 'yyyy-mm-dd_HHMMss'
+    timestamp: 'yyyy-mm-dd_HHMMss',
+    reportDir: 'cypress/reports'
 
   },
 

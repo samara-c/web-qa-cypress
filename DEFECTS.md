@@ -4,6 +4,8 @@
 
 **Area:** Widgets > Tool Tips
 **Status:** Open 
+**Severity:** Low
+**Priority:** Medium
 
 ### Description
 The tooltip displayed for the "Hover me to see" button remains visible after the mouse pointer is moved away from the button
