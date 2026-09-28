@@ -48,6 +48,18 @@ class ToolTipsPage {
         this.sectionLink().trigger('mouseover')
     }
 
+    pageTitle() {
+        return cy.get('h1')
+    }
+
+    hoverPageTitle() {
+        this.pageTitle().trigger('mouseover')
+    }
+
+    leaveTooltipButton() {
+        this.tooltipButton().trigger('mouseout')
+    }
+
 }
 
 export default new ToolTipsPage()
