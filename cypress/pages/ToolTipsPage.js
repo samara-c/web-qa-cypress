@@ -18,6 +18,35 @@ class ToolTipsPage {
         this.tooltipButton().trigger('mouseover')
     }
 
+    tooltipTextField() {
+
+        return cy.get('#toolTipTextField')
+    }
+
+    hoverTooltipTextField() {
+
+        this.tooltipTextField().trigger('mouseover')
+    }
+
+    contraryLink() {
+
+        return cy.contains('a', 'Contrary')
+    }
+
+    sectionLink() {
+
+        return cy.contains('a', '1.10.32')
+    }
+
+    hoverContraryLink() {
+
+        this.contraryLink().trigger('mouseover')
+    }
+
+    hoverSectionLink() {
+
+        this.sectionLink().trigger('mouseover')
+    }
 
 }
 
